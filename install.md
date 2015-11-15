@@ -1,7 +1,9 @@
 ##Redis 的安装与配置
 
 ###安装###
-1. download redis 3.0.5
+1. 
+
+download redis 3.0.5
 
 2.
   
@@ -10,10 +12,8 @@
   cd redis-3.0.5/src
   
   make install
-  
-  
 
-3. 测试
+3.
 
   redis-server &
 
@@ -96,6 +96,7 @@
 
 
 ###设置环境变量###
+
 7. cd ~
 
    vim .bashrc
