@@ -26,13 +26,23 @@
  5 start server
  
   1) redis-server &
+  
+    ```
      ps -ef|grep redis
      netstat-tunpl|grep 6379
      redis-cli(shutdown)
+    ```
+    
   2) redis-server /usr/local/redis/etc/redis.conf
+  
+      ```
        vim redis.conf
        daemonize no --> daemonize yes
+      ```
+      
   3) redis_init_script
+  
+  ```
   	 cd /opt/redis-3.0.5/utils
      1 vim redis_init_script
        EXEC
@@ -45,6 +55,8 @@
 
        sudo update-rc.d redisd defaults
        service redisd start
+  ```
+  
 6 stop
   shutdown
   	   Saving the final RDB snapshot before exiting.
