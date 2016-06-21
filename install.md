@@ -12,14 +12,14 @@
 
 ### 配置
 
-  ```
+```
   mkdir -p /usr/local/redis/bin
   mkdir -p /usr/local/redis/tec
 
   cp redis-cli redis-check-aof redis-check-dump redis-benchmark redis-server redis-sentinel redis-trib.rb mkreleasehdr.sh /usr/local/redis/bin
 
   cp redis.conf sentinel.conf /usr/local/redis/etc
-  ```
+```
 
 ### 启动与停止
 
@@ -27,18 +27,18 @@
  
   1) redis-server &
   
-    ```
+  ```
      ps -ef|grep redis
      netstat-tunpl|grep 6379
      redis-cli(shutdown)
-    ```
+  ```
     
   2) redis-server /usr/local/redis/etc/redis.conf
   
-      ```
+  ```
        vim redis.conf
        daemonize no --> daemonize yes
-      ```
+  ```
       
   3) redis_init_script
   
@@ -58,16 +58,24 @@
   ```
   
 6 stop
-  shutdown
-  	   Saving the final RDB snapshot before exiting.
-       10867:M 07 Nov 13:40:32.603 # Failed opening .rdb for saving: Permission denied
-          cd /etc/redis
-          vim 6379.conf
-          如果是./表示：运行reides命令的目录(例如，$redis_home中，执行./bin/redis-server etc/redis.conf命令，./则代表的是$redis_home)。
-          查看当前用户对dir所配置的路径是否有写权限。
 
-
-  kill -9 PID
+ 6.1  `shutdown`
+  
+  如果出现如下信息
+  
+  ```
+  Saving the final RDB snapshot before exiting.
+  10867:M 07 Nov 13:40:32.603 # Failed opening .rdb for saving: Permission denied
+  ```
+  修复方法：
+  
+  ```
+  cd /etc/redis
+  vim 6379.conf
+  如果是./表示：运行reides命令的目录(例如，$redis_home中，执行./bin/redis-server etc/redis.conf命令，./则代表的是$redis_home)。
+  查看当前用户对dir所配置的路径是否有写权限。
+  ```
+  6.2 kill -9 PID
 
 
 ###设置环境变量###
