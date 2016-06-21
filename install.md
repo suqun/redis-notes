@@ -1,6 +1,6 @@
-##Redis 的安装与配置
+## Redis 的安装与配置
 
-###安装###
+### 安装
 1 download redis 3.0.5
 
 2 tar zxvf redis-3.0.5.tar.gz
@@ -10,17 +10,21 @@
 3 test
   redis-server &
 
-###配置###
+### 配置
+
+  ```
   mkdir -p /usr/local/redis/bin
   mkdir -p /usr/local/redis/tec
 
   cp redis-cli redis-check-aof redis-check-dump redis-benchmark redis-server redis-sentinel redis-trib.rb mkreleasehdr.sh /usr/local/redis/bin
 
   cp redis.conf sentinel.conf /usr/local/redis/etc
+  ```
 
-###启动与停止###
+### 启动与停止
 
  5 start server
+ 
   1) redis-server &
      ps -ef|grep redis
      netstat-tunpl|grep 6379
@@ -55,13 +59,16 @@
 
 
 ###设置环境变量###
-7. cd ~
-   `
-   vim .bashrc
-       #redis
-       export REDIS_HOME=/usr/local/redis
-       export PATH=$REDIS_HOME/bin:$PATH
-      source .bashrc
-   `
+7. 
+  ```
+  cd ~
+  vim .bashrc
+  
+  #redis
+  export REDIS_HOME=/usr/local/redis
+  export PATH=$REDIS_HOME/bin:$PATH
+  
+  source .bashrc
+   ```
 
 
